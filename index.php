@@ -23,6 +23,7 @@ require_once 'includes/login_view.inc.php';
       ?>
    </h3>
 
+   <?php if (!isset($_SESSION['user_id'])) : ?>
    <h3>Login</h3>
    <form action="includes/login.inc.php" method="post">
       <input type="text" name="username" placeholder="Username">
@@ -46,10 +47,14 @@ require_once 'includes/login_view.inc.php';
    check_signup_errors();
    ?>
 
+   <?php else : ?>
+
    <h3>Logout</h3>
    <form action="includes/logout.inc.php" method="post">
       <button>Logout</button>
    </form>
+
+   <?php endif; ?>
 
 </body>
 
